@@ -144,7 +144,7 @@ void LiquidCrystalRus::begin(uint8_t cols, uint8_t lines, uint8_t dotsize) {
     // finally, set to 8-bit interface
     writeNbits(0x02,4); 
   } else {
-    // this is according to the hitachi HD44780 datasheet
+    // this is according to the Hitachi HD44780 datasheet
     // page 45 figure 23
 
     // Send function set command sequence

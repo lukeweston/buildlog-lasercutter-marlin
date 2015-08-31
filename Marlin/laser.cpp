@@ -65,6 +65,8 @@ void timer4_init(int pin) {
 
 void laser_init()
 {
+	// If you use LMN Marlin, then without radically changing the code, it forces you to use timer3 or timer4 for laser PWM.
+	// So you must use one of those pins on your hardware.
   // Initialize timers for laser intensity control
   #if LASER_CONTROL == 1
     if (LASER_FIRING_PIN == 2 || LASER_FIRING_PIN == 3 || LASER_FIRING_PIN == 5) timer3_init(LASER_FIRING_PIN);
@@ -136,7 +138,8 @@ void laser_extinguish(){
     laser.firing = LASER_OFF;
 
     // Engage the pullup resistor for TTL laser controllers which don't turn off entirely without it.
-    digitalWrite(LASER_FIRING_PIN, LOW);
+// We don't need this because the hardware is sensible.
+//    digitalWrite(LASER_FIRING_PIN, LOW);
     laser.time += millis() - (laser.last_firing / 1000);
 
     if (laser.diagnostics) {
