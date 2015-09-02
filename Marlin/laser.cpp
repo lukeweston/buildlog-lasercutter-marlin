@@ -137,9 +137,7 @@ void laser_extinguish(){
   if (laser.firing == LASER_ON) {
     laser.firing = LASER_OFF;
 
-    // Engage the pullup resistor for TTL laser controllers which don't turn off entirely without it.
-// We don't need this because the hardware is sensible.
-//    digitalWrite(LASER_FIRING_PIN, LOW);
+    digitalWrite(LASER_FIRING_PIN, LOW);
     laser.time += millis() - (laser.last_firing / 1000);
 
     if (laser.diagnostics) {

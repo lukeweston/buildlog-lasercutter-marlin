@@ -1,3 +1,4 @@
+
 #ifndef PINS_H
 #define PINS_H
 
@@ -319,81 +320,84 @@
   #define LARGE_FLASH true
 
   #if MOTHERBOARD == 77
-    #define X_STEP_PIN        17 
-    #define X_DIR_PIN         16 
-    #define X_ENABLE_PIN      48 
-    #define X_MIN_PIN         37 
-    #define X_MAX_PIN         -1 // 36 // Max endstops default to disabled "-1", set to commented value to enable.
+    #define X_STEP_PIN         54
+    #define X_DIR_PIN          55
+    #define X_ENABLE_PIN       38
+    #define X_MIN_PIN           3
+    #define X_MAX_PIN           -1   //2 //Max endstops default to disabled "-1", set to commented value to enable.
 
-    #define Y_STEP_PIN        54 
-    #define Y_DIR_PIN         47 
-    #define Y_ENABLE_PIN      55 
-    #define Y_MIN_PIN         35 
-    #define Y_MAX_PIN         34  // 34
+    #define Y_STEP_PIN         60
+    #define Y_DIR_PIN          61
+    #define Y_ENABLE_PIN       56
+    #define Y_MIN_PIN          14
+    #define Y_MAX_PIN          -1   //15
 
-    #define Z_STEP_PIN        57 
-    #define Z_DIR_PIN         56 
-    #define Z_ENABLE_PIN      62 
-    #define Z_MIN_PIN         -1 // 33
-    #define Z_MAX_PIN        -1 // 32
+    #define Z_STEP_PIN         46
+    #define Z_DIR_PIN          48
+    #define Z_ENABLE_PIN       63
+    #define Z_MIN_PIN          18
+    #define Z_MAX_PIN          -1
 
-    #define Z2_STEP_PIN       29 
-    #define Z2_DIR_PIN        28 
-    #define Z2_ENABLE_PIN     39 
+    #define Z2_STEP_PIN        36
+    #define Z2_DIR_PIN         34
+    #define Z2_ENABLE_PIN      30
 
-    #define E0_STEP_PIN       23 
-    #define E0_DIR_PIN        22 
-    #define E0_ENABLE_PIN     24 
+    #define E0_STEP_PIN        26
+    #define E0_DIR_PIN         28
+    #define E0_ENABLE_PIN      24
 
-    #define E1_STEP_PIN       26 
-    #define E1_DIR_PIN        25 
-    #define E1_ENABLE_PIN     27 
+    #define E1_STEP_PIN        36
+    #define E1_DIR_PIN         34
+    #define E1_ENABLE_PIN      30
 
     #define SDPOWER            -1
-    #define SDSS               53 // 53
+    #define SDSS               25//53
     #define LED_PIN            13
 
-    #define BEEPER             31 // Not used.
+    #define BEEPER             33
 
   #else
 
-    #define X_STEP_PIN         17
-    #define X_DIR_PIN          16 
-    #define X_ENABLE_PIN       48 
-    #define X_MIN_PIN          37 
-    #define X_MAX_PIN          -1 // 36
+    #define X_STEP_PIN         54
+    #define X_DIR_PIN          55
+    #define X_ENABLE_PIN       38
+    #define X_MIN_PIN           3
+    #define X_MAX_PIN           2
 
-    #define Y_STEP_PIN         54
-    #define Y_DIR_PIN          47
-    #define Y_ENABLE_PIN       55
-    #define Y_MIN_PIN          35
-    #define Y_MAX_PIN          34
-    #define Z_STEP_PIN         57
-    #define Z_DIR_PIN          56
+    #define Y_STEP_PIN         60
+    #define Y_DIR_PIN          61
+    #define Y_ENABLE_PIN       56
+    #define Y_MIN_PIN          14
+    #define Y_MAX_PIN          15
+
+    #define Z_STEP_PIN         46
+    #define Z_DIR_PIN          48
     #define Z_ENABLE_PIN       62
-    #define Z_MIN_PIN          -1 // 53
-    #define Z_MAX_PIN          -1 // 32
-    #define Z2_STEP_PIN        29
-    #define Z2_DIR_PIN         28
-    #define Z2_ENABLE_PIN      39
+    #define Z_MIN_PIN          18
+    #define Z_MAX_PIN          19
 
-    #define E0_STEP_PIN        23
-    #define E0_DIR_PIN         22
+    #define Z2_STEP_PIN        36
+    #define Z2_DIR_PIN         34
+    #define Z2_ENABLE_PIN      30
+
+    #define E0_STEP_PIN        26
+    #define E0_DIR_PIN         28
     #define E0_ENABLE_PIN      24
-    #define E1_STEP_PIN        26
-    #define E1_DIR_PIN         25
-    #define E1_ENABLE_PIN      27
+
+    #define E1_STEP_PIN        36
+    #define E1_DIR_PIN         34
+    #define E1_ENABLE_PIN      30
 
     #define SDPOWER            -1
     #define SDSS               53
     #define LED_PIN            13
 
   #if LASER_CONTROL == 1
-      #define LASER_FIRING_PIN   11 
+      #define LASER_FIRING_PIN    5
     #endif
   #if LASER_CONTROL == 2
-      #define LASER_INTENSITY_PIN 5 // Digital pins 2, 3, 5, 6, 7, 8 are attached to timers we can use
-      #define LASER_FIRING_PIN 11 
+      #define LASER_INTENSITY_PIN 6 // Digital pins 2, 3, 5, 6, 7, 8 are attached to timers we can use
+      #define LASER_FIRING_PIN  5
   #endif
   #ifdef LASER_POWER_DOWN
     #define LASER_POWER_PIN 9 // This is currently hard-coded to timer2 which services pins 9, 10
@@ -408,9 +412,9 @@
   #endif
 
   #if MOTHERBOARD == 33 || MOTHERBOARD == 35 || MOTHERBOARD == 67
-    #define FAN_PIN            7 // (Sprinter config)
+    #define FAN_PIN            9 // (Sprinter config)
   #else
-    #define FAN_PIN            7 // IO pin. Buffer needed
+    #define FAN_PIN            4 // IO pin. Buffer needed
   #endif
 
   #if MOTHERBOARD == 77
@@ -463,8 +467,6 @@
     #endif
   #endif
   #define TEMP_BED_PIN       14   // ANALOG NUMBERING
-
-
 
   #ifdef NUM_SERVOS
     #define SERVO0_PIN         11
@@ -637,6 +639,83 @@
 
 #endif //MOTHERBOARD == 3 || MOTHERBOARD == 33 || MOTHERBOARD == 34 || MOTHERBOARD == 35 || MOTHERBOARD == 77
 
+//==============================================================================
+
+#if MOTHERBOARD == 42
+#define KNOWN_BOARD 1
+
+// Laser cutter controller pin assignment.
+
+#ifndef __AVR_ATmega1280__
+	#ifndef __AVR_ATmega2560__
+		#error Oops!  Make sure you have 'Arduino Mega' selected from the 'Tools -> Boards' menu.
+	#endif
+#endif
+	
+	#define LARGE_FLASH true
+
+	#define X_STEP_PIN	17
+	#define X_DIR_PIN	16
+	#define X_ENABLE_PIN	48 
+	#define X_MIN_PIN	37
+	#define X_MAX_PIN	-1 // Only one sensor per axis, "max" sensors don't exist.
+
+	#define Y_STEP_PIN	54
+	#define Y_DIR_PIN	47
+	#define Y_ENABLE_PIN	55
+	#define Y_MIN_PIN	35  
+	#define Y_MAX_PIN	-1
+
+	#define Z_STEP_PIN	57
+	#define Z_DIR_PIN	56
+	#define Z_ENABLE_PIN	62
+	#define Z_MIN_PIN	33
+	#define Z_MAX_PIN	-1
+
+	#define E0_STEP_PIN	23 // These need to be "real" pins, not -1
+	#define E0_DIR_PIN	22
+	#define E0_ENABLE_PIN	24
+	#define E1_STEP_PIN	-1
+	#define E1_DIR_PIN	-1
+	#define E1_ENABLE_PIN	-1
+	#define E2_STEP_PIN	-1
+	#define E2_DIR_PIN	-1
+	#define E2_ENABLE_PIN	-1
+
+	// Removed the other laser control options. We don't really need the "general purpose" code here
+	// Because this hardware definition block in pins.h is specific to a particular hardware build.
+	// This is laser control "Mode 2" with a separate laser-on pin and PWM DAC pin.
+	// But I have removed some of the nice abstraction and generalisability of the LMN Marlin code, admittedly.
+	
+	#define LASER_INTENSITY_PIN 5 // Change this to pin 5 on the hardware. This corresponds to an "allowed" timer.
+	#define LASER_FIRING_PIN  11	// Keep this on pin 11, it doesn't require a timer.
+
+	// Have removed a lot of the nice "general-purpose" code for different thermistor and sensor options for 3D printing.
+	// It's nice code and useful, and we probably could have kept this "general-purpose 3D printer" code with a laser cutter configuration
+	// with zero extruders and zero temperature sensors etc specified, but never mind for the moment.
+	
+	#define FAN_PIN            7 // Two fan ports on the board on pins 7 and 8. Ideally we'll just set these to always on, no PWM.
+	// #FIXME Set up these fan controller ports. Always-on on D7 and D8 should be fine.
+	#define CONTROLLERFAN_PIN  8
+
+	#define LED_PIN            13 // General-purpose status LED, not really important but it's there.
+	#define PS_ON_PIN          -1
+	#define KILL_PIN           -1
+	#define HEATER_0_PIN	    2 // Seems to need some spare pin here to keep it happy.       
+	#define HEATER_1_PIN       -1
+	#define HEATER_2_PIN       -1
+	#define TEMP_0_PIN         15 // Analog pin. Does this need a real pin number?
+	#define TEMP_1_PIN         -1 // Analog pin
+	#define TEMP_2_PIN         -1 // Analog pin
+	#define HEATER_BED_PIN     -1
+	#define TEMP_BED_PIN       -1 // Analog pin
+
+	// Don't use Ultra LCD, RepRap Discount display or SD-card, servos, buzzer, MAX6675 etc.
+	// Keep the appropriate defines off, because we haven't defined pins for these.
+#endif // MOTHERBOARD == 42
+// End laser cutter controller (42) pin definition block.
+//===============================================================================
+
 /****************************************************************************************
 * Duemilanove w/ ATMega328P pin assignment
 *
@@ -682,7 +761,6 @@
 #define TEMP_2_PIN          -1
 #define HEATER_BED_PIN      -1
 #define TEMP_BED_PIN        -1
-
 #endif
 
 /****************************************************************************************
@@ -695,7 +773,6 @@
 #ifndef __AVR_ATmega2560__
  #error Oops!  Make sure you have 'Arduino Mega' selected from the 'Tools -> Boards' menu.
 #endif
-
 
 #define X_STEP_PIN         49
 #define X_DIR_PIN          13
@@ -806,9 +883,7 @@
   //#define TRANS_ARRAY {7, 6, 5, 4, 3, 2, 1, 0, 8, 9, 10, 11, 12, 13, 14, 15} //backwards
 #endif //RA_LIGHTING
 
-
 #endif /* Ra Board */
-
 
 /****************************************************************************************
 * Gen6 pin assignment
@@ -873,7 +948,6 @@
     //our RS485 pins
     #define TX_ENABLE_PIN 12
     #define RX_ENABLE_PIN 13
-
 
 #endif
 
@@ -1230,8 +1304,6 @@
  #error Oops!  Make sure you have 'Arduino Mega' selected from the 'Tools -> Boards' menu.
 #endif
 
-// We can use these step/direction pinout definitions for the laser cutter controller X/Y steppers and position sensors, they're compatible.
-
 #define X_STEP_PIN         17
 #define X_DIR_PIN          16
 #define X_ENABLE_PIN       48
@@ -1269,8 +1341,6 @@
 
 #define PS_ON_PIN          45
 #define KILL_PIN           46
-
-// Laser cutter controller does not use the heater stuff
 
 #if (TEMP_SENSOR_0==0)
  #define TEMP_0_PIN         -1
@@ -1338,7 +1408,6 @@
 #define BTN_ENC            43
 
 #endif //MOTHERBOARD==80
-
 
 /****************************************************************************************
 * Teensylu 0.7 / Printrboard pin assignments (AT90USB1286)
@@ -1528,8 +1597,6 @@
 
 #endif
 
-
-
 /****************************************************************************************
 * Open Motion controller with enable based extruders
 *
@@ -1609,7 +1676,7 @@
 #define TEMP_2_PIN         -1 // 2
 #define HEATER_BED_PIN     -1 // 14/15
 #define TEMP_BED_PIN       -1 // 1,2 or I2C
-/*  Unused (1) (2) (3) 4 5 6 7 8 9 10 11 12 13 (14) (15) (16) 17 (18) (19) (20) (21) (22) (23) 24 (25) (26) (27) 28 (29) (30) (31)  */
+//  Unused (1) (2) (3) 4 5 6 7 8 9 10 11 12 13 (14) (15) (16) 17 (18) (19) (20) (21) (22) (23) 24 (25) (26) (27) 28 (29) (30) (31)
 
 #endif
 
@@ -1835,11 +1902,9 @@
 #if MOTHERBOARD == 70
 #define KNOWN_BOARD 1
 
-
  #ifndef __AVR_ATmega2560__
  #error Oops!  Make sure you have 'Arduino Mega' selected from the 'Tools -> Boards' menu.
  #endif
-
 
 #define LARGE_FLASH        true
 
@@ -1896,7 +1961,6 @@
 
 #define BEEPER 33     // Beeper on AUX-4
 
-
 #ifdef ULTRA_LCD
 
   #ifdef NEWPANEL
@@ -1936,7 +2000,6 @@
 ****************************************************************************************/
 #if MOTHERBOARD == 701
  #define KNOWN_BOARD 1
-
 
  #ifndef __AVR_ATmega2560__
  #error Oops! Make sure you have 'Arduino Mega' selected from the 'Tools -> Boards' menu.
@@ -1993,7 +2056,6 @@
    #define TEMP_0_PIN 13 // ANALOG NUMBERING
  #endif
 
-
  #if TEMP_SENSOR_1 == -1
    #define TEMP_1_PIN 8 // ANALOG NUMBERING
  #else
@@ -2011,7 +2073,6 @@
  #endif
 
  #define BEEPER 64
-
 
  #define LCD_PINS_RS 14
  #define LCD_PINS_ENABLE 15
@@ -2039,7 +2100,6 @@
  #define encrot3 1
 
 #endif
-
 
 /****************************************************************************************
 * Minitronics v1.0
@@ -2116,7 +2176,6 @@
  #define LCD_PINS_D6 -1
  #define LCD_PINS_D7 -1
 
-
  //buttons are directly attached using keypad
  #define BTN_EN1 -1
  #define BTN_EN2 -1
@@ -2135,8 +2194,6 @@
  #define encrot3 1
 
 #endif
-
-
 
 #ifndef KNOWN_BOARD
 #error Unknown MOTHERBOARD value in configuration.h
